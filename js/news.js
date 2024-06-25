@@ -20,16 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
   logUserInteraction('Page loaded');
 
   fetch(`https://newsapi.org/v2/everything?domains=thestar.com.my&apiKey=${newsApiKey}`)
-    .then(response => {
-      logUserInteraction('Fetching news data from API');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Log user interaction
-      logUserInteraction('Fetched news data from API');
+  .then(response => {
+    logUserInteraction('Fetching news data from API');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Log user interaction
+    logUserInteraction('Fetched news data from API');
 
       // Hide loading spinner and show content
       loading.style.display = 'none';
