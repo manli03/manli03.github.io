@@ -1,0 +1,55 @@
+h1 {
+    color: rgb(220, 220, 20);
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    margin-top: 0;
+}
+
+h3, h5 {
+    color: rgb(21, 234, 21);
+}
+
+.texts {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    text-shadow:
+        -0.5px -0.5px 0 grey,
+        0.5px -0.5px 0 grey,
+        -0.5px  0.5px 0 grey,
+        0.5px  0.5px 0 grey;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for the box */
+    z-index: 1; /* Text on top */
+    max-width: 80%; /* Prevent text from stretching too wide */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white box */
+}
+
+.texts::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    z-index: -1;
+    border-radius: 10px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 700px) {
+    .texts {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 600px) {
+    .texts {
+        font-size: 20px;
+        margin-top: 200px;
+    }
+}

@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url("../resource/bgimage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: auto auto 40px auto; /* Adjust top margin to account for fixed header */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 90%; /* Adjust width for responsiveness */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 70px;
+}
+
+.gallery-item {
+    background-color: rgba(240, 240, 240, 0.9); /* Semi-transparent light grey background */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    display: flex; /* Add this */
+    flex-direction: column; /* Add this */
+    height: 100%; /* Add this */
+}
+
+.gallery-item img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    flex-grow: 1; /* Add this */
+    object-fit: cover; /* Add this */
+}
+
+.gallery-item p {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: auto; /* Add this */
+    margin-bottom: auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Add this for better readability */
+}
+
+/* Existing lightbox styles... */
+
+@media (max-width: 768px) {
+    .gallery-item {
+        max-width: 100%;
+    }
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000; /* Increased to be higher than the header */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox img {
+    max-height: 90%;
+    max-width: 90%;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* Optional: Add a close button */
+.lightbox::after {
+    content: '\00D7';
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        max-width: 100%;
+    }
+}

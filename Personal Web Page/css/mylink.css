@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url("../resource/bgimage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.content {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.favorite-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.favorite-links li {
+    margin-bottom: 15px;
+}
+
+.favorite-links a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.favorite-links a:hover {
+    text-decoration: underline;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Slightly smaller base font size for mobile */
+    }
+
+    .content {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px; /* Smaller heading for mobile */
+    }
+
+    .favorite-links li {
+        margin-bottom: 20px; /* More space between items on mobile */
+    }
+
+    .favorite-links a {
+        display: block; /* Make links full width on mobile */
+        margin-bottom: 5px; /* Space between link and description */
+    }
+}

@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../resource/bgimage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Text container for the introduction */
+.texts {
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 800px;
+    text-align: center;
+    margin: auto 20px 40px 20px;
+    line-height: 1.8;
+}
+
+/* Main title styling */
+h1 {
+    color: #2980b9; /* Light blue */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px; /* Adjust spacing above the header */
+    font-size: 24px; /* Adjust font size */
+    color: #333; /* Choose a color that fits your design */
+}
+
+
+/* Subtitle and section titles */
+h3 {
+    color: #34495e; /* Darker blue-gray */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* General paragraph styling */
+p {
+    font-size: 1.1rem;
+    color: #555; /* Softer dark gray for readability */
+}
+
+/* Strong tags for emphasis */
+p strong {
+    color: #2c3e50; /* Darker blue for emphasized text */
+}
+
+/* Responsiveness: Adjust for smaller screens */
+@media (max-width: 768px) {
+    .texts {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .button-container a {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
