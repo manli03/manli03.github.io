@@ -18,7 +18,7 @@ Below is a list of projects or websites hosted within this repository. Click on 
 
 *   **Project Name:** About me
 *   **Description:** Brief description about myself
-*   **Live Link:** 🌐 **https://manli03.github.io/Personal Web Page/**
+*   **Live Link:** 🌐 **https://manli03.github.io/Personal%20Web%20Page/**
 
 ---
 
