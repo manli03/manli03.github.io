@@ -1,0 +1,479 @@
+/* --- Variables --- */
+:root {
+    --primary-color: #FFDA41;
+    /* A cheerful yellow */
+    --secondary-color: #4A2B0E;
+    /* Dark chocolate brown */
+    --text-color: #333;
+    --light-bg: #FFF8E1;
+    /* Very light cream */
+    --white: #fff;
+    --grey-text: #666;
+    --border-radius: 8px;
+}
+
+/* --- Base Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- Buttons --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #FFC700;
+    /* Slightly darker yellow on hover */
+    transform: translateY(-2px);
+}
+
+.primary-cta {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.secondary-cta {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.secondary-cta:hover {
+    background-color: #3a210b;
+    /* Slightly darker brown on hover */
+}
+
+.large-cta {
+    font-size: 1.4em;
+    padding: 18px 35px;
+}
+
+
+/* --- Hero Section --- */
+#hero {
+    background-color: var(--primary-color);
+    padding: 80px 0;
+    color: var(--secondary-color);
+}
+
+#hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+#hero .logo {
+    max-width: 150px;
+    /* Adjust size as needed */
+    margin-bottom: 10px;
+}
+
+#hero h1 {
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+    font-size: 3.5em;
+}
+
+#hero h2 {
+    color: var(--secondary-color);
+    margin-top: 0;
+    font-size: 1.8em;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.hero-content .text-content {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-content .image-content {
+    flex: 1;
+    max-width: 350px;
+    /* Adjust size of the image */
+}
+
+.product-hero-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.price-value {
+    color: red;
+    /* Highlight the price prominently */
+    font-size: 1.2em;
+    /* Make the value slightly bigger */
+}
+
+
+/* --- Problem/Solution Section --- */
+#problem-solution {
+    background-color: var(--white);
+}
+
+#problem-solution ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+#problem-solution ul li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1.1em;
+}
+
+#problem-solution ul li i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--primary-color);
+    /* Use primary color for icons */
+    font-size: 1.3em;
+}
+
+/* --- Varieties Section --- */
+#varieties {
+    background-color: var(--light-bg);
+}
+
+.flavor-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.flavor-item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    background-color: var(--white);
+    padding: 30px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.flavor-item .flavor-img {
+    max-width: 200px;
+    /* Adjust size */
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+}
+
+
+/* --- How to Order Section --- */
+#how-to-order {
+    background-color: var(--white);
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.step-item {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    padding: 30px 20px;
+    border-radius: var(--border-radius);
+    background-color: var(--light-bg);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+    padding-top: 50px;
+    /* Make space for the number */
+}
+
+.step-number {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 2px solid var(--secondary-color);
+}
+
+.step-item h3 {
+    margin-top: 0;
+}
+
+
+/* --- CTA & Contact Section --- */
+#cta {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+#cta h2 {
+    color: var(--secondary-color);
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 30px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-item i {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    /* Icons stand out */
+    margin-bottom: 15px;
+}
+
+.contact-item p {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--white);
+}
+
+.contact-item .social-links a {
+    margin: 0 10px;
+    font-size: 1.8em;
+    color: var(--primary-color);
+    /* Social icons color */
+}
+
+.contact-item .social-links a:hover {
+    color: var(--white);
+}
+
+.cta-buttons {
+    margin-top: 30px;
+}
+
+.cta-buttons .cta-button {
+    margin: 10px;
+    /* Add space between potential multiple buttons */
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--grey-text);
+    padding: 20px 0;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    /* Lighter color for text in footer */
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .hero-content .text-content,
+    .hero-content .image-content {
+        flex: none;
+        width: 100%;
+        max-width: none;
+    }
+
+    .product-hero-img {
+        max-width: 250px;
+        /* Smaller image on mobile */
+        margin: 0 auto;
+        /* Center the image */
+    }
+
+
+    .cta-button {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+
+    .large-cta {
+        font-size: 1.2em;
+        padding: 15px 30px;
+    }
+
+    .steps,
+    .contact-info,
+    .flavor-options {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .step-item,
+    .contact-item,
+    .flavor-item {
+        width: 90%;
+        /* Make items take more width on small screens */
+        min-width: 0;
+        margin: 0 auto;
+        /* Center them */
+    }
+
+    .step-number {
+        font-size: 1.2em;
+        width: 35px;
+        height: 35px;
+    }
+
+    #problem-solution ul {
+        max-width: 90%;
+        /* Allow list to take more width */
+    }
+
+    #problem-solution ul li {
+        font-size: 1em;
+    }
+
+    .social-links a {
+        font-size: 1.5em !important;
+        /* Ensure social icons are appropriately sized */
+    }
+
+    .cta-buttons .cta-button {
+        margin: 5px;
+        /* Reduce margin between buttons */
+    }
+}
