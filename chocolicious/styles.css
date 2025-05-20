@@ -9,26 +9,34 @@
     /* Very light cream */
     --white: #fff;
     --grey-text: #666;
-    --border-radius: 8px;
+    --border-radius: 10px;
+    /* Slightly larger radius for cards */
+    --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* --- Animations --- */
+/* Fade in with a slight upward bounce */
 @keyframes fadeInBounce {
     0% {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(20px) scale(0.95);
+        /* Start slightly smaller and lower */
     }
 
-    70% {
-        transform: translateY(10px);
+    60% {
+        transform: translateY(-5px) scale(1.02);
+        /* Bounce slightly above final position */
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
+/* Slide in from left and fade */
 @keyframes slideInFade {
     0% {
         opacity: 0;
@@ -41,6 +49,7 @@
     }
 }
 
+/* Subtle floating animation */
 @keyframes floatAnimation {
     0% {
         transform: translateY(0);
@@ -48,6 +57,7 @@
 
     50% {
         transform: translateY(-10px);
+        /* Adjust float height */
     }
 
     100% {
@@ -55,6 +65,7 @@
     }
 }
 
+/* Button pulse animation */
 @keyframes ctaPulse {
     0% {
         transform: scale(1);
@@ -62,8 +73,10 @@
     }
 
     50% {
-        transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(74, 43, 14, 0.3);
+        transform: scale(1.03);
+        /* Slightly less aggressive pulse */
+        box-shadow: 0 8px 20px rgba(74, 43, 14, 0.4);
+        /* More prominent shadow on pulse */
     }
 
     100% {
@@ -71,6 +84,8 @@
         box-shadow: 0 5px 15px rgba(74, 43, 14, 0.2);
     }
 }
+
+
 /* --- Base Styles --- */
 * {
     box-sizing: border-box;
@@ -83,6 +98,8 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-bg);
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 .container {
@@ -92,34 +109,63 @@ body {
 }
 
 section {
-    padding: 60px 0;
+    padding: 80px 0;
+    /* Increased padding */
     text-align: center;
+    position: relative;
+    /* Needed for potential future background effects */
 }
+
+/* Alternating background colors for sections */
+#problem-solution {
+    background-color: var(--white);
+}
+
+#varieties {
+    background-color: var(--light-bg);
+}
+
+#how-to-order {
+    background-color: var(--white);
+}
+
+#cta {
+    background-color: var(--primary-color);
+}
+
 
 h1,
 h2,
 h3 {
     color: var(--secondary-color);
     margin-bottom: 20px;
+    font-weight: 700;
+    /* Ensure headings are bold */
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 3.5em;
+    /* Slightly larger */
     margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 2.5em;
+    /* Slightly larger */
+    margin-bottom: 40px;
+    /* More space below section titles */
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 1.6em;
+    /* Slightly larger */
     margin-bottom: 15px;
 }
 
 p {
     margin-bottom: 20px;
+    font-size: 1.1em;
+    /* Slightly larger paragraph text */
 }
 
 .text-center {
@@ -131,21 +177,37 @@ p {
     display: inline-block;
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    padding: 15px 30px;
+    padding: 18px 35px;
+    /* Increased padding */
     text-decoration: none;
     border-radius: 50px;
-    font-size: 1.2em;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.3em;
+    /* Increased font size */
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     border: none;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 25px;
+    /* More space above button */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Initial button shadow */
 }
 
+.cta-button i {
+    margin-right: 8px;
+    /* Space between icon and text */
+}
+
+
 .cta-button:hover {
+    background-color: #FFC700;
+    /* Slightly darker yellow on hover */
+    transform: translateY(-5px);
+    /* Lift button on hover */
+    box-shadow: var(--shadow-medium);
+    /* More prominent shadow on hover */
     animation: none;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(74, 43, 14, 0.3);
+    /* Disable pulse on hover if it's pulsing */
 }
 
 .primary-cta {
@@ -161,21 +223,46 @@ p {
 .secondary-cta:hover {
     background-color: #3a210b;
     /* Slightly darker brown on hover */
+    color: var(--primary-color);
+    /* Change text color on hover for secondary */
 }
 
 .large-cta {
-    font-size: 1.4em;
-    padding: 18px 35px;
+    font-size: 1.5em;
+    padding: 20px 40px;
 }
 
 
 /* --- Hero Section --- */
 #hero {
     background-color: var(--primary-color);
-    padding: 80px 0;
+    padding: 100px 0;
+    /* More padding for hero */
     color: var(--secondary-color);
     overflow: hidden;
+    /* Keep animations contained */
+    position: relative;
 }
+
+/* Optional: Add a subtle pattern or texture */
+/*
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('path/to/your/subtle-pattern.png');
+    opacity: 0.1;
+    z-index: 0;
+}
+#hero > .container {
+    position: relative;
+    z-index: 1;
+}
+*/
+
 
 #hero .container {
     display: flex;
@@ -185,54 +272,63 @@ p {
 }
 
 #hero .logo {
-    max-width: 150px;
+    max-width: 180px;
     /* Adjust size as needed */
-    margin-bottom: 10px;
-    animation: fadeInBounce 1.2s ease-out;
+    margin-bottom: 15px;
+    animation: fadeInBounce 1.2s ease-out forwards;
+    /* Apply animation */
+    box-shadow: var(--shadow-light);
+    /* Add shadow to logo */
+    border-radius: var(--border-radius);
+    /* Optional: Match radius if logo is square */
 }
 
 #hero h1 {
     color: var(--secondary-color);
     margin-bottom: 5px;
-    font-size: 3.5em;
-    animation: slideInFade 0.8s ease-out;
-        animation-delay: 0.3s;
-        opacity: 0;
-        animation-fill-mode: forwards;
+    font-size: 4em;
+    /* Make H1 bigger */
+    animation: slideInFade 0.8s ease-out 0.3s forwards;
+    /* Apply animation with delay */
+    opacity: 0;
+    /* Start hidden for animation */
 }
 
 #hero h2 {
     color: var(--secondary-color);
     margin-top: 0;
-    font-size: 1.8em;
-    font-weight: 400;
+    font-size: 2.2em;
+    /* Make H2 bigger */
+    font-weight: 600;
+    /* Slightly bolder */
     margin-bottom: 40px;
-    animation: slideInFade 0.8s ease-out;
-        animation-delay: 0.6s;
-        opacity: 0;
-        animation-fill-mode: forwards;
+    animation: slideInFade 0.8s ease-out 0.6s forwards;
+    /* Apply animation with delay */
+    opacity: 0;
+    /* Start hidden for animation */
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
+    /* More space between text and image */
     width: 100%;
 }
 
 .hero-content .text-content {
     flex: 1;
     text-align: center;
-    animation: slideInFade 0.8s ease-out;
-        animation-delay: 0.9s;
-        opacity: 0;
-        animation-fill-mode: forwards;
+    animation: fadeInBounce 1s ease-out 0.9s forwards;
+    /* Apply animation with delay */
+    opacity: 0;
+    /* Start hidden */
 }
 
 .hero-content .image-content {
     flex: 1;
-    max-width: 350px;
+    max-width: 400px;
     /* Adjust size of the image */
 }
 
@@ -240,62 +336,84 @@ p {
     max-width: 100%;
     height: auto;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-heavy);
+    /* More prominent shadow */
     animation: fadeInBounce 1.2s ease-out 1.2s backwards,
-            floatAnimation 3s ease-in-out infinite;
+        /* Fade/bounce in */
+        floatAnimation 4s ease-in-out infinite;
+    /* Subtle float loop */
 }
 
 .highlight-price {
-    font-size: 1.5em;
+    font-size: 1.8em;
+    /* Make price text bigger */
     font-weight: bold;
     color: var(--secondary-color);
+    /* Text remains secondary color */
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
 .price-value {
-    color: red;
-    /* Highlight the price prominently */
-    font-size: 1.2em;
-    /* Make the value slightly bigger */
+    color: #E53935;
+    /* Use a more vibrant red */
+    font-size: 1.3em;
+    /* Make the value even bigger than surrounding text */
+    font-weight: 900;
+    /* Make the value extra bold */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    /* Subtle text shadow */
 }
 
 #hero .cta-button {
     animation: ctaPulse 2s infinite;
+    /* Apply pulse animation */
+    box-shadow: 0 5px 15px rgba(74, 43, 14, 0.2);
+    /* Ensure initial shadow for pulse */
 }
+
 
 /* --- Problem/Solution Section --- */
 #problem-solution {
-    background-color: var(--white);
+    /* Already handled by alternating background */
 }
 
 #problem-solution ul {
     list-style: none;
     padding: 0;
     text-align: left;
-    max-width: 700px;
-    margin: 20px auto;
+    max-width: 800px;
+    /* Wider list area */
+    margin: 30px auto;
+    /* More space */
 }
 
 #problem-solution ul li {
-    margin-bottom: 15px;
-    padding-left: 30px;
+    margin-bottom: 20px;
+    /* More space between items */
+    padding-left: 35px;
+    /* More space for icon */
     position: relative;
-    font-size: 1.1em;
+    font-size: 1.15em;
+    /* Slightly larger text */
+    color: var(--text-color);
+    /* Ensure consistent text color */
 }
 
 #problem-solution ul li i {
     position: absolute;
     left: 0;
-    top: 5px;
-    color: var(--primary-color);
-    /* Use primary color for icons */
-    font-size: 1.3em;
+    top: 4px;
+    /* Adjust vertical alignment */
+    color: var(--secondary-color);
+    /* Use secondary color for icons here */
+    font-size: 1.5em;
+    /* Make icons bigger */
 }
 
 /* --- Varieties Section --- */
 #varieties {
-    background-color: var(--light-bg);
+    /* Already handled by alternating background */
 }
 
 .flavor-options {
@@ -303,87 +421,166 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
-    margin-top: 40px;
+    margin-top: 50px;
+    /* More space below heading */
 }
 
 .flavor-item {
     flex: 1;
-    min-width: 250px;
-    max-width: 350px;
+    min-width: 280px;
+    /* Slightly larger min-width */
+    max-width: 380px;
+    /* Slightly larger max-width */
     background-color: var(--white);
     padding: 30px 20px;
     border-radius: var(--border-radius);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-light);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Add transition for hover */
 }
 
+.flavor-item:hover {
+    transform: translateY(-10px);
+    /* Lift on hover */
+    box-shadow: var(--shadow-medium);
+    /* More prominent shadow on hover */
+}
+
+
 .flavor-item .flavor-img {
-    max-width: 200px;
+    max-width: 220px;
     /* Adjust size */
     height: auto;
     border-radius: var(--border-radius);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    /* More space below image */
+}
+
+.flavor-item h3 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.flavor-item p {
+    color: var(--grey-text);
+    /* Use grey for description */
+    margin-bottom: 0;
+    /* Remove bottom margin */
+    font-size: 1em;
 }
 
 
 /* --- How to Order Section --- */
 #how-to-order {
-    background-color: var(--white);
+    /* Already handled by alternating background */
 }
 
 .steps {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
+    gap: 40px;
+    /* More space between steps */
+    margin-top: 50px;
+    /* More space below heading */
 }
 
 .step-item {
     flex: 1;
-    min-width: 200px;
-    max-width: 300px;
+    min-width: 220px;
+    /* Slightly larger min-width */
+    max-width: 320px;
+    /* Slightly larger max-width */
     padding: 30px 20px;
     border-radius: var(--border-radius);
     background-color: var(--light-bg);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+    /* Use light background for step cards */
+    box-shadow: var(--shadow-light);
     position: relative;
     padding-top: 50px;
-    /* Make space for the number */
+    text-align: center;
+    /* Ensure text is centered */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Add transition for hover */
+}
+
+.step-item:hover {
+    transform: translateY(-10px);
+    /* Lift on hover */
+    box-shadow: var(--shadow-medium);
+    /* More prominent shadow on hover */
+    background-color: var(--white);
+    /* Change background slightly on hover */
 }
 
 .step-number {
     position: absolute;
-    top: 15px;
+    top: -20px;
+    /* Position above the card */
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    width: 50px;
+    /* Make number circle bigger */
+    height: 50px;
+    /* Make number circle bigger */
+    background-color: var(--secondary-color);
+    /* Use secondary color for number background */
+    color: var(--primary-color);
+    /* Use primary color for number text */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5em;
-    font-weight: bold;
-    border: 2px solid var(--secondary-color);
+    font-size: 2em;
+    /* Make number larger */
+    font-weight: 900;
+    /* Make number bolder */
+    border: 3px solid var(--primary-color);
+    /* Border matching text color */
+    box-shadow: var(--shadow-light);
+    /* Shadow on the number */
+    z-index: 2;
+    /* Ensure it's above the card */
 }
 
 .step-item h3 {
-    margin-top: 0;
+    margin-top: 15px;
+    /* More space below number area */
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.step-item p {
+    color: var(--grey-text);
+    /* Use grey for description */
+    margin-bottom: 0;
+    font-size: 1em;
 }
 
 
 /* --- CTA & Contact Section --- */
 #cta {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background-color: var(--secondary-color);
+    /* Dark brown background for CTA */
+    color: var(--white);
+    /* White text on dark background */
+    padding: 80px 0;
 }
 
 #cta h2 {
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    /* Yellow heading */
+    margin-bottom: 20px;
 }
+
+#cta p {
+    color: rgba(255, 255, 255, 0.9);
+    /* Slightly transparent white for paragraph */
+    font-size: 1.2em;
+    /* Slightly larger text */
+}
+
 
 .contact-info {
     display: flex;
@@ -391,35 +588,61 @@ p {
     justify-content: center;
     gap: 30px;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    /* More space above buttons */
 }
 
 .contact-item {
     flex: 1;
-    min-width: 200px;
-    max-width: 300px;
-    background-color: var(--secondary-color);
+    min-width: 250px;
+    max-width: 320px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent white background */
     color: var(--white);
     padding: 30px 20px;
     border-radius: var(--border-radius);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-medium);
+    /* Shadow on dark background */
     text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Subtle border */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    /* Add transition for hover */
 }
 
+.contact-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* More opaque on hover */
+    transform: translateY(-5px);
+    /* Lift on hover */
+    box-shadow: var(--shadow-heavy);
+    /* More prominent shadow on hover */
+}
+
+
 .contact-item i {
-    font-size: 2.5em;
+    font-size: 3em;
+    /* Make icons bigger */
     color: var(--primary-color);
     /* Icons stand out */
     margin-bottom: 15px;
 }
 
 .contact-item p {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 1em;
+    color: rgba(255, 255, 255, 0.8);
+    /* Lighter text */
+}
+
+.contact-item strong {
+    color: var(--white);
+    /* Bold text is fully white */
 }
 
 .contact-item a {
     color: var(--primary-color);
+    /* Yellow link color */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -427,26 +650,44 @@ p {
 
 .contact-item a:hover {
     color: var(--white);
+    /* White on hover */
+}
+
+.contact-item .social-links {
+    margin-top: 15px;
 }
 
 .contact-item .social-links a {
-    margin: 0 10px;
-    font-size: 1.8em;
+    margin: 0 12px;
+    /* More space between social icons */
+    font-size: 2.2em;
+    /* Make social icons bigger */
     color: var(--primary-color);
     /* Social icons color */
+    transition: color 0.3s ease;
 }
 
 .contact-item .social-links a:hover {
     color: var(--white);
 }
 
+
 .cta-buttons {
-    margin-top: 30px;
+    margin-top: 40px;
+    /* More space above buttons */
+    display: flex;
+    /* Use flexbox for button layout */
+    flex-wrap: wrap;
+    /* Allow buttons to wrap on smaller screens */
+    justify-content: center;
+    /* Center buttons */
+    gap: 20px;
+    /* Space between buttons */
 }
 
 .cta-buttons .cta-button {
-    margin: 10px;
-    /* Add space between potential multiple buttons */
+    margin-top: 0;
+    /* Remove extra top margin from individual buttons */
 }
 
 
@@ -454,14 +695,17 @@ p {
 footer {
     background-color: var(--secondary-color);
     color: var(--grey-text);
-    padding: 20px 0;
+    padding: 25px 0;
+    /* Slightly more padding */
     font-size: 0.9em;
     text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Subtle top border */
 }
 
 footer p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.5);
     /* Lighter color for text in footer */
 }
 
@@ -469,23 +713,31 @@ footer p {
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.5em;
+        font-size: 2.8em;
     }
 
     h2 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     h3 {
-        font-size: 1.3em;
+        font-size: 1.4em;
     }
 
+    p {
+        font-size: 1em;
+    }
+
+    /* Reset paragraph font size on mobile */
+
     section {
-        padding: 40px 0;
+        padding: 50px 0;
     }
 
     .hero-content {
         flex-direction: column;
+        gap: 30px;
+        /* Reduced gap on mobile */
     }
 
     .hero-content .text-content,
@@ -496,28 +748,37 @@ footer p {
     }
 
     .product-hero-img {
-        max-width: 250px;
-        /* Smaller image on mobile */
+        max-width: 280px;
+        /* Slightly larger image on mobile */
         margin: 0 auto;
         /* Center the image */
     }
 
+    .highlight-price {
+        font-size: 1.6em;
+    }
+
+    .price-value {
+        font-size: 1.2em;
+    }
+
 
     .cta-button {
-        font-size: 1em;
-        padding: 12px 25px;
+        font-size: 1.1em;
+        padding: 14px 28px;
     }
 
     .large-cta {
-        font-size: 1.2em;
-        padding: 15px 30px;
+        font-size: 1.3em;
+        padding: 16px 32px;
     }
 
     .steps,
     .contact-info,
     .flavor-options {
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
+        /* Adjusted gap */
     }
 
     .step-item,
@@ -528,33 +789,56 @@ footer p {
         min-width: 0;
         margin: 0 auto;
         /* Center them */
+        padding: 25px 15px;
+        /* Reduced padding */
     }
 
     .step-number {
-        font-size: 1.2em;
-        width: 35px;
-        height: 35px;
+        font-size: 1.5em;
+        width: 40px;
+        height: 40px;
+        top: -15px;
+        /* Adjust position */
     }
 
     #problem-solution ul {
         max-width: 90%;
         /* Allow list to take more width */
+        margin-top: 20px;
     }
 
     #problem-solution ul li {
         font-size: 1em;
+        padding-left: 30px;
     }
 
+    #problem-solution ul li i {
+        font-size: 1.3em;
+        top: 3px;
+    }
+
+
     .social-links a {
-        font-size: 1.5em !important;
+        font-size: 2em !important;
         /* Ensure social icons are appropriately sized */
     }
 
+    .cta-buttons {
+        flex-direction: column;
+        /* Stack buttons on mobile */
+        gap: 15px;
+        /* Space between stacked buttons */
+    }
+
     .cta-buttons .cta-button {
-        margin: 5px;
-        /* Reduce margin between buttons */
+        width: 90%;
+        /* Make buttons take more width */
+        margin: 0 auto;
+        /* Center buttons */
     }
 }
+
+/* Specific adjustment for desktop layout */
 @media (min-width: 768px) {
     .hero-content {
         flex-direction: row;
@@ -565,5 +849,58 @@ footer p {
     .hero-content .text-content,
     .hero-content .image-content {
         flex: 0 0 48%;
+        /* Allocate width */
+    }
+
+    .hero-content .text-content {
+        text-align: left;
+        /* Align text left on larger screens */
+    }
+
+    .flavor-options,
+    .steps,
+    .contact-info {
+        gap: 30px;
+        /* Standard gap for larger screens */
+    }
+
+    .flavor-item,
+    .step-item,
+    .contact-item {
+        flex: 1;
+        /* Allow items to grow/shrink */
+        min-width: 0;
+        /* Reset min-width */
+    }
+
+    .steps .step-item {
+        flex-basis: calc(33.33% - 20px);
+        /* Distribute 3 items evenly with gap */
+        max-width: none;
+    }
+
+    .flavor-options .flavor-item {
+        flex-basis: calc(50% - 20px);
+        /* Distribute 2 items evenly with gap */
+        max-width: none;
+    }
+
+    .contact-info .contact-item {
+        flex-basis: calc(33.33% - 20px);
+        /* Distribute 3 items evenly with gap */
+        max-width: none;
+    }
+
+    .cta-buttons {
+        flex-direction: row;
+        /* Row for buttons */
+        gap: 20px;
+    }
+
+    .cta-buttons .cta-button {
+        width: auto;
+        /* Auto width based on content */
+        margin: 0;
+        /* Reset margin */
     }
 }
