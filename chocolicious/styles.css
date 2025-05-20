@@ -372,12 +372,6 @@ p {
     /* Ensure initial shadow for pulse */
 }
 
-
-/* --- Problem/Solution Section --- */
-#problem-solution {
-    /* Already handled by alternating background */
-}
-
 #problem-solution ul {
     list-style: none;
     padding: 0;
@@ -409,11 +403,6 @@ p {
     /* Use secondary color for icons here */
     font-size: 1.5em;
     /* Make icons bigger */
-}
-
-/* --- Varieties Section --- */
-#varieties {
-    /* Already handled by alternating background */
 }
 
 .flavor-options {
@@ -468,12 +457,6 @@ p {
     margin-bottom: 0;
     /* Remove bottom margin */
     font-size: 1em;
-}
-
-
-/* --- How to Order Section --- */
-#how-to-order {
-    /* Already handled by alternating background */
 }
 
 .steps {
