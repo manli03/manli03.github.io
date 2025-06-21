@@ -7,24 +7,35 @@ document.addEventListener('DOMContentLoaded', () => {
     mirror: false, // whether elements should animate out while scrolling past them
   });
 
-  // --- Sticky Header & Active Nav Link Highlighting ---
+  // --- Element Selections ---
   const header = document.getElementById('main-header');
   const navLinks = document.querySelectorAll('#main-nav a');
   const sections = document.querySelectorAll('section[id]');
+  const toTopBtn = document.getElementById('back-to-top-btn');
 
+  // --- Scroll Handler for multiple features ---
   const handleScroll = () => {
+    const scrollY = window.scrollY;
+
     // Handle sticky header
-    if (window.scrollY > 50) {
+    if (scrollY > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
+    }
+
+    // Handle "Back to Top" button visibility
+    if (scrollY > 400) {
+      toTopBtn.classList.add('visible');
+    } else {
+      toTopBtn.classList.remove('visible');
     }
 
     // Handle active nav link highlighting
     let currentSection = '';
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
-      if (window.scrollY >= sectionTop - 100) {
+      if (scrollY >= sectionTop - 100) {
         // Adjusted offset
         currentSection = section.getAttribute('id');
       }
@@ -39,7 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.addEventListener('scroll', handleScroll);
-  handleScroll(); // Initial check
+  handleScroll(); // Initial check on page load
+
+  // --- Back to Top Button Click ---
+  toTopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
 
   // --- Mobile Navigation Toggle ---
   const menuToggle = document.getElementById('menu-toggle');
