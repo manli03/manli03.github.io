@@ -590,7 +590,9 @@ section {
 
 /* Hide browser arrows for number input */
 input[type=number] {
+    appearance: textfield;
     -moz-appearance: textfield;
+    -webkit-appearance: textfield;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -1296,48 +1298,32 @@ input[type=number]::-webkit-outer-spin-button {
     transition: opacity var(--transition-speed) ease;
 }
 
-@media (min-width: 992px) {
+#group-photo-section {
+    padding: 150px 0;
+    text-align: center;
+    color: var(--white);
 
-    /* Two columns on larger screens */
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /* Parallax Background Effect for DESKTOP */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/project/group-photo.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-@media (max-width: 768px) {
-    .timeline::after {
-        left: 25px;
-    }
+#group-photo-section h2 {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
 
-    .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-        text-align: left !important;
-    }
-
-    .timeline-item:nth-child(even) {
-        left: 0;
-    }
-
-    .timeline-icon {
-        left: 0 !important;
-        right: auto !important;
-    }
-
-    .social-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .social-image {
-        order: -1;
-        /* Puts image on top on mobile */
-        margin-bottom: 30px;
-    }
-
-    .orders-grid {
-        grid-template-columns: 1fr;
-    }
+#group-photo-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 #thank-you {
@@ -1456,4 +1442,56 @@ input[type=number]::-webkit-outer-spin-button {
 
 .lightbox-close:hover {
     transform: scale(1.1);
+}
+
+@media (min-width: 992px) {
+
+    /* Two columns on larger screens */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 25px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        text-align: left !important;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline-icon {
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    .social-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .social-image {
+        order: -1;
+        /* Puts image on top on mobile */
+        margin-bottom: 30px;
+    }
+
+    .orders-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #group-photo-section {
+        background-attachment: scroll;
+        /* Disables the parallax effect on mobile */
+        background-size: contain;
+        background-color: var(--secondary-color);
+        padding: 100px 0;
+    }
 }
